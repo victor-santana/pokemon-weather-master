@@ -1,0 +1,15 @@
+<div class="city-form-image-container">
+    <img alt="Logo imagem pokemon" src="assets/images/pokemon-logo.png" />
+</div>
+
+<form [formGroup]="form" (submit)="searchCity()">
+    <label for="cityInput" class="city-form-label">Insira uma <b>cidade</b> para visualizar um Pokémon de acordo com o clima</label>
+
+    <input autofocus formControlName="city" (input)="error = ''" class="city-form-input" placeholder="Ex.: Campinas" />
+
+    <div class="message-error" *ngIf="error">
+        <span [outerHTML]="error"></span>
+    </div>
+
+    <button [disabled]="!form.valid || !form.dirty || form.pristine || error" type="submit" class="city-form-button">Buscar</button>
+</form>

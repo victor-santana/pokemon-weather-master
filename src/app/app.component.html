@@ -1,0 +1,19 @@
+<img class="pokemon-wallpaper" src="assets/images/wallpaper.png" />
+
+<div class="pokemon-content">
+
+  <div class="pokemon-city-container">
+    <app-city-form 
+      (loading)="updateLoading($event)" 
+      (cityFound)="updateWeather($event)"
+      (onProcess)="onProcess()"></app-city-form>
+  </div>
+
+  <div class="pokemon-result-container" 
+    *ngIf="result.pokemonName">
+    <app-result-view [result]="result"></app-result-view>
+  </div>
+
+</div>
+
+<app-loading [loading]="loading"></app-loading>
